@@ -1,6 +1,7 @@
-import React from 'react'
 
-const Form = ({setTodos}) => {
+import {motion} from 'motion/react'
+
+const Form = ({setTodos,backgroundImage}) => {
 
   const handleClick=(event)=>{
 
@@ -14,10 +15,12 @@ const Form = ({setTodos}) => {
   }
   
   return (
-    <form onSubmit={handleClick}>
-      <input type='text' name='todo' id='todo' placeholder='Enter you daily log here.....'>
+    <form onSubmit={handleClick} className='bg-white mx-5 rounded-full flex justify-between '>
+      <input type='text' name='todo' id='todo' placeholder='Enter you daily log here.....' className='text-sm placeholder:text-sm px-2 text-black outline-none w-full'>
       </input>
-      <button>Submit</button>
+      <motion.button
+      style={{backgroundImage}}
+      className='bg-lime-400 rounded-full text-sm text-white font-bold py-2 px-3 hover:bg-lime-500 hover:text-gray-200'>Submit</motion.button>
     </form>
   )
 }
