@@ -1,10 +1,9 @@
 import { useState,useEffect } from 'react'
 import {animate, motion,useMotionTemplate,useMotionValue} from 'motion/react'
 
-import TodoHero from './component/TodoHero'
 import Form from './component/Form'
+import TodoHero from './component/TodoHero'
 import TodoList from './component/TodoList'
-
 
 const COLORS=["#13FFAA","#1E67C6","#CE84CF","#10103dff"]
 function App() {
@@ -40,7 +39,8 @@ function App() {
        
         <TodoHero todos_completed={todos_completed} totol_todos={total_todos} />
         <Form setTodos={setTodos} backgroundImage={backgroundImage}/>
-        <TodoList todos={todos} />
+        <TodoList todos={todos} setTodos={setTodos}/>
+
 
       </div>
     </motion.div>

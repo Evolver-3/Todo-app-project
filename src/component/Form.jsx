@@ -7,7 +7,8 @@ const Form = ({setTodos,backgroundImage}) => {
 
     event.preventDefault();
      
-      const value=event.target.todo.value;
+      const value=event.target.todo.value.trim();
+      if(!value) return;
       setTodos((prev)=>[
         ...prev,{title:value,id:self.crypto.randomUUID(),is_completed:false}
       ])
