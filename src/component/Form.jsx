@@ -5,13 +5,18 @@ const Form = ({setTodos,backgroundImage}) => {
 
   const handleClick=(event)=>{
 
-    event.preventDefault();
-     
+      event.preventDefault();
+  
       const value=event.target.todo.value.trim();
       if(!value) return;
+      const newTodo={title:value,id:self.crypto.randomUUID(),is_completed:false}
+
+
       setTodos((prev)=>[
-        ...prev,{title:value,id:self.crypto.randomUUID(),is_completed:false}
+        ...prev,newTodo
       ])
+      const updateTodoList=JSON.stringify([...todos,newTodo])
+      localStorage.setItem("todos",updateTodoList)
       event.target.reset()
   }
   

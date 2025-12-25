@@ -5,7 +5,7 @@ const TodoList = ({todos,setTodos}) => {
     <ol className='flex flex-col items-start pl-5 overflow-y-scroll '>
       {todos.length>0? (
         todos.map((item,index)=>
-        <Item key={index} item={item} setTodos={setTodos}></Item> )):(
+        <Item key={index} item={item} setTodos={setTodos} todos={todos}></Item> )):(
           <p className='text-white font-mono'>type anything....</p>
         )
       }
@@ -25,9 +25,14 @@ function Item({item,setTodos}){
   }
   const handleSubmit=(event)=>{
     event.preventDefault();
+
+    //const updatedTodos=JSON.stringify(todos);
+   // localStorage.setItem("todos",updatedTodos)
     setEdit(false)
   }
   const handleInputBlur=()=>{
+    //const updatedTodos=JSON.stringify(todos)
+   // localStorage.setItem("todos",updatedTodos)
     setEdit(false)
   }
 
@@ -48,11 +53,21 @@ function Item({item,setTodos}){
   }
 
   const finishedTodo=()=>{
-    setTodos((prev)=>prev.map((todo)=>todo.id===todo.id?{...todo,is_completed: !todo.is_completed}:todo))
+    setTodos((prev)=>prev.map((todo)=>todo.id===item.id?{...todo,is_completed: !todo.is_completed}:todo));
+    
+  //const updatedTodos=JSON.stringify(todos);
+ // localStorage.setItem("todos",updatedTodos);
   }
+
+
 
   const handleDelete=()=>{
     setTodos((prev)=>prev.filter((todo)=>todo.id!==item.id))
+
+    //const updatedTodos=JSON.stringify(
+      //todos.filter((todo)=>todo.id !==item.id) )
+      //localStorage.setItem("todos",updatedTodos)
+   
 
   }
   return(
