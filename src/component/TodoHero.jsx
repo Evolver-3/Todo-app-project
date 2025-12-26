@@ -19,7 +19,7 @@ const TodoHero = ({todos_completed,total_todos}) => {
     initial={{opacity:0,y:-100}}
     animate={{opacity:1,y:0}}
     transition={{delay:.3,duration:.5,type:"spring",stiffness:100,damping:10}}
-    className="flex w-full items-center justify-between px-10 md:px-25">
+    className="flex w-full items-center justify-around px-10 md:px-20">
       <div>
       <h2 className='text-5xl font-semibold text-neutral-400 font-mono flex gap-1'>A Local Todo</h2>
 

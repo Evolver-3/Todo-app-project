@@ -1,5 +1,5 @@
 
-import {motion} from 'motion/react'
+import {color, motion} from 'motion/react'
 
 const Form = ({setTodos}) => {
 
@@ -21,12 +21,16 @@ const Form = ({setTodos}) => {
   }
   
   return (
-    <form onSubmit={handleClick} className='bg-white mx-5 rounded-full flex justify-between mx-10 md:mx-40'>
-      <input type='text' name='todo' id='todo' placeholder='Enter you daily log here.....' className='text-sm placeholder:text-sm px-2 text-black outline-none w-full'>
+    <form onSubmit={handleClick} className='flex justify-around w-full px-10 md:px-20 gap-5'>
+      <input type='text' name='todo' id='todo' placeholder='Enter you daily log here.....' className='text-sm placeholder:text-sm px-2 text-black outline-none bg-white rounded-full w-100 md:w-200'>
       </input>
-      <motion.button
-      style={{}}
-      className='bg-lime-400 rounded-full text-sm text-white font-bold py-2 px-3 hover:bg-lime-500 hover:text-gray-200'>Submit</motion.button>
+      <button
+      className='cursor-pointer relative w-40 h-10'>
+        <motion.div
+        whileTap={{translateY:"10px"}}
+        className='relative z-10 w-[100%] h-[100%] text-sm text-center text-white font-bold rounded-[25px] bg-neutral-400 px-6 py-2 '>Submit</motion.div>
+        <div className="w-[100%] h-[100%] text-sm text-center outline-2 outline-blue-400 rounded-[25px] bg-orange-400 absolute  top-[10px]"></div>
+      </button>
     </form>
   )
 }
