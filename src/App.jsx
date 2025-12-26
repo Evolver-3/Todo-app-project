@@ -38,7 +38,7 @@ function App() {
   return (
     <motion.div
     style={{backgroundImage}}
-     className='h-screen flex flex-col gap-10 py-10'>
+     className='h-auto min-h-[736px] flex flex-col gap-10 py-10'>
       
       <div className=''>
         <TodoHero todos_completed={todos_completed} total_todos={total_todos} />

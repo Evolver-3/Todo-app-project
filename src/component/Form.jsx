@@ -8,16 +8,16 @@ const Form = ({setTodos}) => {
       event.preventDefault();
   
       const value=event.target.todo.value.trim();
-      if(!value) return;
+      if(!value) return null;
       const newTodo={title:value,id:self.crypto.randomUUID(),is_completed:false}
-
 
       setTodos((prev)=>[
         ...prev,newTodo
       ])
       const updateTodoList=JSON.stringify([...todos,newTodo])
-      localStorage.setItem("todos",updateTodoList)
-      event.target.reset()
+      localStorage.setItem("todos",updateTodoList);
+      event.target.reset();
+      
   }
   
   return (
@@ -27,9 +27,9 @@ const Form = ({setTodos}) => {
       <button
       className='cursor-pointer relative w-40 h-10'>
         <motion.div
-        whileTap={{translateY:"10px"}}
+        whileTap={{translateY:"6px",webkitTextFillColor:"purple"}}
         className='relative z-10 w-[100%] h-[100%] text-sm text-center text-white font-bold rounded-[25px] bg-neutral-400 px-6 py-2 '>Submit</motion.div>
-        <div className="w-[100%] h-[100%] text-sm text-center outline-2 outline-blue-400 rounded-[25px] bg-orange-400 absolute  top-[10px]"></div>
+        <div className="w-[100%] h-[100%] text-sm text-center outline-2 outline-blue-400 rounded-[25px] bg-orange-400 absolute top-[6px]"></div>
       </button>
     </form>
   )
