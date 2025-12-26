@@ -2,11 +2,11 @@ import React, { useEffect, useRef, useState } from 'react'
 
 const TodoList = ({todos,setTodos}) => {
   return (
-    <ol className='flex flex-col items-start pl-5 overflow-y-scroll '>
+    <ol className='flex flex-col items-start mx-10 mt-10 overflow-y-scroll '>
       {todos.length>0? (
         todos.map((item,index)=>
         <Item key={index} item={item} setTodos={setTodos} todos={todos}></Item> )):(
-          <p className='text-white font-mono'>type anything....</p>
+          <p className='text-white font-mono'></p>
         )
       }
 

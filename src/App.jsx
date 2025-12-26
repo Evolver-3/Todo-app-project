@@ -5,11 +5,11 @@ import Form from './component/Form'
 import TodoHero from './component/TodoHero'
 import TodoList from './component/TodoList'
 
-const COLORS=["#13FFAA","#1E67C6","#CE84CF","#10103dff"]
+const COLORS=["#13FFAA","#3c8cd4","#CE84CF","#613473"]
 function App() {
 
   const colors=useMotionValue(COLORS[0])
-  const backgroundImage=useMotionTemplate`radial-gradient( 125% 125% at 50% 0%, #020617 40%, ${colors})`
+  const backgroundImage=useMotionTemplate`radial-gradient( 125% 125% at 50% 0%, #3c8089ff 40%, ${colors})`
   
   useEffect(()=>{
     animate(colors,COLORS,{
@@ -38,15 +38,18 @@ function App() {
   return (
     <motion.div
     style={{backgroundImage}}
-     className='h-screen flex items-center justify-center '>
-      <div className="w-100 h-100 md:w-240 rounded-md bg-neutral-500 text-center flex flex-col py-5 gap-4">
-       
+     className='h-screen flex flex-col gap-10 py-10'>
+      
+      <div className=''>
         <TodoHero todos_completed={todos_completed} total_todos={total_todos} />
-        <Form setTodos={setTodos} todos={todos} backgroundImage={backgroundImage} />
-        <TodoList todos={todos} setTodos={setTodos}/>
-
-
       </div>
+      <div>
+        <Form setTodos={setTodos} todos={todos}  />
+        <TodoList todos={todos} setTodos={setTodos}/>
+      </div>
+
+
+      
     </motion.div>
   )
 }
