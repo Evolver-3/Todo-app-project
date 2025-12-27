@@ -9,16 +9,20 @@ backdrop-filter: blur(5px);
 -webkit-backdrop-filter: blur(5px);
 }
 
+.Tabbutton{
+  position: relative;
+  z-index:10;
+}
 .Tabbutton::before{
   content:"";
   position:absolute;
+  inset: 0;
   background:blue;
   border-radius: 10px;
   outline:2px solid orange;
   position:absolute;
-  top: 18px;
+  top: 10px;
   left:0;
-  z-index: -10;
-  width:inherit;
-  height: inherit;
+  z-index: -1;
+
 }

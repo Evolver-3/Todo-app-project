@@ -63,7 +63,7 @@ function Item({item,setTodos}){
     <motion.li
     initial={{opacity:0,y:100}}
     whileInView={{opacity:1,y:0}}
-    transition={{delay:.6,duration:.6}}
+    transition={{delay:.3,duration:.6}}
     id={item.id} className='flex w-full h-20 border-[2px] border-lime-700 rounded px-4 justify-between items-center'>
 
       {edit? (
@@ -79,12 +79,32 @@ function Item({item,setTodos}){
           <p className='text-white font-mono text-start' style={item.is_completed? {textDecoration:"line-through"}:{}}>{item.title}</p>
         </button>
 
-        <div className='flex gap-4 w-auto h-9'>
-          <button className='relative bg-lime-400 w-15 h-8 rounded-[10px] px-2 py-1 Tabbutton z-10' onClick={handleEdit}>
-            <span className='relative text-white font-bold hover:text-neutral-300 z-0'>Edit</span>
+        <div className='flex gap-4'>
+
+          <button className='relative cursor-pointer w-20 h-10' onClick={handleEdit}>
+
+           <motion.div
+           
+           whileTap={{translateY:"3px"}}
+           transition={{ease:"easeInOut"
+           }}
+           className='relative w-[100%] h-[100%] text-md font-semibold text-center text-neutral-300 bg-gray-500 px-2 py-2 rounded-md z-10 hover:text-gray-400'>Edit</motion.div>
+
+           <div className='absolute w-[100%] h-[100%] top-[3px] bg-orange-400 outline-2 outline-neutral-500 rounded-md'></div>
+
           </button>
-          <button className='bg-lime-400 rounded-xl px-2 py-1' onClick={handleDelete}>
-            <span className='text-white font-bold hover:text-neutral-300'>Delete</span>
+
+
+          <button className='relative cursor-pointer w-20 h-10' onClick={handleDelete}>
+
+            <motion.div
+            whileTap={{translateY:"3px"}}
+           transition={{ease:"easeInOut"
+           }}
+            className='relative w-[100%] h-[100%] text-md font-semibold text-center text-neutral-300 bg-gray-500 px-2 py-2 rounded-md z-10 hover:text-gray-400'>Delete</motion.div>
+
+            <div className='absolute w-[100%] h-[100%] top-[3px] bg-orange-400 outline-2 outline-neutral-500 rounded-md'></div>
+
           </button>
         </div>
       </>
